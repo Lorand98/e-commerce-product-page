@@ -1,0 +1,23 @@
+@use '../abstracts/mixins.module';
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500&display=swap');
+
+html {
+  font-size: 62.5%;
+  @include mixins.respond(phone) {
+    font-size: 50%;
+  }
+
+  @include mixins.respond(tab-port) {
+    font-size: 55%;
+  }
+
+  @include mixins.respond(tab-land) {
+    font-size: 60%;
+  }
+}
+
+body {
+  font-family: 'Kumbh Sans', Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+}
