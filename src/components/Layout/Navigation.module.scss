@@ -1,0 +1,34 @@
+@use '../../sass/abstracts/variables.module';
+
+.navigation {
+  padding: 3rem 1rem;
+  margin: 1rem;
+  border-bottom: 0.1rem solid variables.$color-grayish-blue;
+  display: flex;
+  gap: 6rem;
+
+  align-items: center;
+
+  &-list {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    flex: 1 1 auto;
+  }
+
+  &__user-cart {
+    display: flex;
+    gap: 5rem;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    &__avatar-container {
+      flex: 0 1 5rem;
+    }
+
+    &__avatar {
+      width: 100%;
+    }
+  }
+}

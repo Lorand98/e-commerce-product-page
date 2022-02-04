@@ -1,0 +1,6 @@
+@use '../../sass/abstracts/variables.module';
+
+body {
+  background-color: variables.$color-white;
+  color: variables.$color-dark-grayish-blue;
+}
