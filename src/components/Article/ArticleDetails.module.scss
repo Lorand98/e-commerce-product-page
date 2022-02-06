@@ -1,0 +1,107 @@
+@use '../../sass/abstracts/variables.module';
+
+.article-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__company {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: variables.$color-orange;
+    letter-spacing: 0.2rem;
+  }
+
+  &__title {
+    font-size: 4.8rem;
+    line-height: 5rem;
+    color: variables.$color-black;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    &--current {
+      display: flex;
+      gap: 1.4rem;
+      &__value {
+        font-size: 2.6rem;
+        color: variables.$color-black;
+        font-weight: 700;
+      }
+
+      &__discount {
+        background-color: variables.$color-pale-orange;
+        color: variables.$color-orange;
+        font-weight: 700;
+        padding: 0 0.5rem;
+        border-radius: 0.5rem;
+      }
+    }
+
+    &--old {
+      color: variables.$color-grayish-blue;
+      font-weight: 700;
+
+      text-decoration: line-through;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 2rem;
+
+    &__qty {
+      display: flex;
+      gap: 4rem;
+      background-color: variables.$color-light-grayish-blue;
+      padding: 1rem;
+      border-radius: 0.6rem;
+
+      &__btn {
+        background-color: inherit;
+        display: flex;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.4;
+        }
+      }
+
+      &__value {
+        color: variables.$color-black;
+        font-weight: 700;
+      }
+    }
+
+    &__cart-btn {
+      flex: 1 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 0.8rem;
+      background-color: variables.$color-orange;
+      font-weight: 700;
+      color: variables.$color-white;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.4;
+      }
+
+      &__icon {
+        transform: scale(0.6);
+        & path {
+          fill: variables.$color-white;
+        }
+      }
+    }
+  }
+}

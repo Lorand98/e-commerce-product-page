@@ -2,7 +2,7 @@ import { Component } from 'react';
 import classes from './Navigation.module.scss';
 
 import { ReactComponent as Logo } from '../../icons/logo.svg';
-import { ReactComponent as Cart } from '../../icons/icon-cart.svg';
+import { ReactComponent as CartIcon } from '../../icons/icon-cart.svg';
 
 import imgAvatarPath from '../../images/image-avatar.png';
 
@@ -21,7 +21,7 @@ class Navigation extends Component {
           </ul>
         </div>
         <div className={classes['navigation__user-cart']}>
-          <Cart className={classes['navigation__user-cart__cart']} />
+          <CartIcon className={classes['navigation__user-cart__cart']} />
           <div className={classes['navigation__user-cart__avatar-container']}>
             <img
               alt='User Profile'
