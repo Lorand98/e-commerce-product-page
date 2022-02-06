@@ -48,7 +48,7 @@ export default class ArticleDetails extends Component {
           <button className={classes['article-details__actions__cart-btn']}>
             <CartIcon
               className={classes['article-details__actions__cart-btn__icon']}
-            />{' '}
+            />
             Add to cart
           </button>
         </div>

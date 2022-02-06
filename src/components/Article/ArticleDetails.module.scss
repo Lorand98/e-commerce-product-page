@@ -56,9 +56,9 @@
 
     &__qty {
       display: flex;
-      gap: 4rem;
+      gap: 5rem;
       background-color: variables.$color-light-grayish-blue;
-      padding: 1rem;
+      padding: 1.4rem;
       border-radius: 0.6rem;
 
       &__btn {
@@ -82,22 +82,28 @@
     &__cart-btn {
       flex: 1 0 auto;
       display: flex;
+      gap: 1rem;
       align-items: center;
       justify-content: center;
       border: none;
       border-radius: 0.8rem;
       background-color: variables.$color-orange;
+      font-size: 1.6rem;
       font-weight: 700;
       color: variables.$color-white;
+
+      box-shadow: 0rem 0.8rem 1.6rem -0.3rem variables.$color-orange;
+
+      transition: all 0.2s;
 
       cursor: pointer;
 
       &:hover {
-        opacity: 0.4;
+        opacity: 0.6;
       }
 
       &__icon {
-        transform: scale(0.6);
+        transform: scale(0.8);
         & path {
           fill: variables.$color-white;
         }
