@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.module.scss';
+import Article from './components/Article/Article';
 import Navigation from './components/Layout/Navigation';
 
 class App extends Component {
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <>
         <Navigation />
+        <Article />
       </>
     );
   }

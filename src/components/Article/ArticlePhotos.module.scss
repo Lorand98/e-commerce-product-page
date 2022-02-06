@@ -1,0 +1,43 @@
+@use '../../sass/abstracts/variables.module';
+
+.article-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  max-width: 44rem;
+
+  &__main-photo {
+    border-radius: 2rem;
+    cursor: pointer;
+  }
+
+  &__thumbnail-box {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 3rem;
+  }
+
+  &__thumbnail-container {
+    flex: 0 1 25%;
+
+    height: max-content;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    cursor: pointer;
+
+    &--selected {
+      box-shadow: 0 0 0 0.3rem variables.$color-orange;
+
+      & > * {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &__thumbnail {
+    max-width: 100%;
+    display: block;
+  }
+}
