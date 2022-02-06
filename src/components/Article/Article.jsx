@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import classes from './Artcile.module.scss';
+import classes from './Article.module.scss';
 
 export default class Article extends Component {
   render() {
