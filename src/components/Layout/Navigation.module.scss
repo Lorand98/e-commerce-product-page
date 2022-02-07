@@ -14,17 +14,20 @@
     display: flex;
     gap: 6rem;
 
-    &--mobile {
+    &__menu {
       display: none;
     }
 
-    @include mixins.respond(tab-port) {
-      &--desktop {
-        display: none;
-      }
+    &__start {
+      display: flex;
 
-      &--mobile {
+      gap: 2rem;
+    }
+
+    @include mixins.respond(tab-port) {
+      &__menu {
         display: block;
+        align-self: flex-end;
       }
     }
   }
@@ -34,6 +37,10 @@
     display: flex;
     gap: 3rem;
     flex: 1 1 auto;
+
+    @include mixins.respond(tab-port) {
+      display: none;
+    }
   }
 
   &__user-cart {
@@ -42,8 +49,19 @@
     align-items: center;
     justify-content: space-between;
 
+    @include mixins.respond(tab-port) {
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+
     &__avatar-container {
       flex: 0 1 5rem;
+      display: flex;
+      align-items: center;
+
+      @include mixins.respond(tab-port) {
+        flex-basis: 3rem;
+      }
     }
 
     &__avatar {

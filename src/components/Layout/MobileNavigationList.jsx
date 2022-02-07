@@ -13,7 +13,7 @@ export default class MobileNavigationList extends Component {
       >
         <div className={classes['backdrop']}></div>
         <div className={classes['mobile-navlist-overlay']}>
-          <CloseIcon />
+          <CloseIcon onClick={this.props.onClose} />
           <ul className={classes['mobile-navlist']}>{this.props.children}</ul>
         </div>
       </div>,
