@@ -1,10 +1,21 @@
+@use '../../sass/abstracts/mixins.module';
+
 .article {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 10rem;
+  column-gap: 5rem;
 
   align-items: center;
 
-  max-width: 85%;
+  max-width: 90%;
   margin: 9rem auto;
+
+  @include mixins.respond(tab-port) {
+    margin-top: 2rem;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    justify-items: center;
+  }
 }

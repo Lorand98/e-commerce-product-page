@@ -39,9 +39,11 @@ class Navigation extends Component {
           <div className={classes['navigation-list-container__start']}>
             <MenuIcon
               onClick={this.changeShowMobileNav.bind(this)}
-              className={classes['navigation-list-container__menu']}
+              className={classes['navigation-list-container__start__menu']}
             />
-            <Logo />
+            <Logo
+              className={classes['navigation-list-container__start__logo']}
+            />
           </div>
 
           <ul className={classes['navigation-list']}>{this.navigationList}</ul>

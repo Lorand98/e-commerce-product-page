@@ -1,4 +1,5 @@
 @use '../../sass/abstracts/variables.module';
+@use '../../sass/abstracts/mixins.module';
 
 .article-photos {
   display: flex;
@@ -7,15 +8,32 @@
 
   max-width: 44rem;
 
+  @include mixins.respond(tab-land) {
+    max-width: 36rem;
+  }
+  @include mixins.respond(tab-port) {
+    max-width: 100vw;
+    max-height: 70vh;
+    overflow: hidden;
+  }
+
   &__main-photo {
     border-radius: 2rem;
     cursor: pointer;
+
+    @include mixins.respond(tab-port) {
+      border-radius: 0;
+    }
   }
 
   &__thumbnail-box {
     display: flex;
 
     gap: 3rem;
+
+    @include mixins.respond(tab-port) {
+      display: none;
+    }
   }
 
   &__thumbnail-container {

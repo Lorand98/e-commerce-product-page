@@ -10,24 +10,31 @@
   align-items: center;
   justify-content: space-between;
 
+  @include mixins.respond(tab-port) {
+    border-bottom: none;
+    padding: 0rem 1rem 0rem;
+    margin: 1rem 0;
+  }
+
   &-list-container {
     display: flex;
+    justify-content: flex-start;
     gap: 6rem;
-
-    &__menu {
-      display: none;
-    }
 
     &__start {
       display: flex;
+      gap: 1rem;
 
-      gap: 2rem;
-    }
+      @include mixins.respond(tab-port) {
+        transform: scale(0.8);
+      }
 
-    @include mixins.respond(tab-port) {
       &__menu {
-        display: block;
-        align-self: flex-end;
+        display: none;
+        @include mixins.respond(tab-port) {
+          display: block;
+          align-self: flex-end;
+        }
       }
     }
   }
@@ -47,7 +54,7 @@
     display: flex;
 
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
 
     @include mixins.respond(tab-port) {
       justify-content: flex-end;
