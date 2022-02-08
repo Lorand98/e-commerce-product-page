@@ -68,22 +68,37 @@ export default class ArticlePhotos extends Component {
 
   render() {
     const thumbnailList = this.articlePhotoPaths.map(
-      ({ thumbnailPath }, currElIndex) => (
-        <div
-          className={`${classes['article-photos__thumbnail-container']}  ${
-            thumbnailPath === this.state.selectedPhoto.thumbnailPath &&
-            classes['article-photos__thumbnail-container--selected']
-          }`}
-          key={currElIndex}
-          onClick={this.selectPhotoHandler.bind(this, currElIndex)}
-        >
+      ({ thumbnailPath }, currElIndex) => {
+        const thumbnailImg = (
           <img
             alt='Shoe'
             src={thumbnailPath}
             className={classes['article-photos__thumbnail']}
           />
-        </div>
-      )
+        );
+        const thumbnail =
+          thumbnailPath === this.state.selectedPhoto.thumbnailPath ? (
+            <div
+              className={
+                classes['article-photos__thumbnail-container__selected']
+              }
+            >
+              {thumbnailImg}
+            </div>
+          ) : (
+            thumbnailImg
+          );
+
+        return (
+          <div
+            className={classes['article-photos__thumbnail-container']}
+            key={currElIndex}
+            onClick={this.selectPhotoHandler.bind(this, currElIndex)}
+          >
+            {thumbnail}
+          </div>
+        );
+      }
     );
 
     const thumbnailBox = (

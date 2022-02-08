@@ -95,11 +95,13 @@ $initial-max-width: 45rem;
 
     cursor: pointer;
 
-    &--selected {
+    &__selected {
       box-shadow: 0 0 0 0.3rem variables.$color-orange;
 
+      background-color: variables.$color-white;
+
       & > * {
-        opacity: 0.4;
+        opacity: 0.6;
       }
     }
   }
