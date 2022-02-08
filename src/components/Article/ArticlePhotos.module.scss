@@ -1,12 +1,14 @@
 @use '../../sass/abstracts/variables.module';
 @use '../../sass/abstracts/mixins.module';
 
+$initial-max-width: 45rem;
+
 .article-photos {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 
-  max-width: 44rem;
+  max-width: $initial-max-width;
 
   @include mixins.respond(tab-land) {
     max-width: 36rem;
@@ -17,6 +19,46 @@
     overflow: hidden;
   }
 
+  &--lightbox {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  &__main-photo-container {
+    position: relative;
+
+    &__switch-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 50%;
+
+      width: 6rem;
+      height: 6rem;
+      position: absolute;
+      background-color: variables.$color-white;
+      border: none;
+      border-radius: 10rem;
+
+      cursor: pointer;
+
+      &:hover {
+        & svg path {
+          stroke: variables.$color-orange;
+        }
+      }
+    }
+
+    &__prev-btn {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    &__next-btn {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+
   &__main-photo {
     border-radius: 2rem;
     cursor: pointer;
@@ -24,12 +66,21 @@
     @include mixins.respond(tab-port) {
       border-radius: 0;
     }
+
+    &--lightbox {
+      max-width: 100%;
+      cursor: default;
+    }
   }
 
   &__thumbnail-box {
     display: flex;
 
     gap: 3rem;
+
+    align-self: center;
+
+    max-width: $initial-max-width;
 
     @include mixins.respond(tab-port) {
       display: none;
@@ -39,7 +90,6 @@
   &__thumbnail-container {
     flex: 0 1 25%;
 
-    height: max-content;
     border-radius: 1rem;
     overflow: hidden;
 

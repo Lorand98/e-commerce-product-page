@@ -1,0 +1,12 @@
+@use '../../sass/abstracts/variables.module';
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: variables.$color-black;
+  opacity: 0.7;
+  z-index: 10;
+}

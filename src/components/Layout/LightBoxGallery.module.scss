@@ -1,0 +1,32 @@
+@use '../../sass/abstracts/variables.module';
+.lightbox-gallery-container {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  left: 0;
+  z-index: 11;
+  top: 0;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-gallery {
+  position: relative;
+  max-width: 50rem;
+
+  &__close {
+    position: absolute;
+    right: 0;
+
+    z-index: 12;
+    transform: scale(1.5) translateY(-120%);
+    cursor: pointer;
+    & path {
+      fill: variables.$color-orange;
+    }
+  }
+}
