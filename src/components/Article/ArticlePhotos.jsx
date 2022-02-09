@@ -51,7 +51,6 @@ export default class ArticlePhotos extends Component {
     }
 
     if (toBeSelectedPhotoIndex < 0) {
-      console.log(toBeSelectedPhotoIndex);
       toBeSelectedPhotoIndex = this.articlePhotoPaths.length - 1;
     }
 
