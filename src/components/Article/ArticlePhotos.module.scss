@@ -24,47 +24,14 @@ $initial-max-width: 45rem;
     justify-content: center;
   }
 
-  &__main-photo-container {
-    position: relative;
-
-    &__switch-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 50%;
-
-      width: 6rem;
-      height: 6rem;
-      position: absolute;
-      background-color: variables.$color-white;
-      border: none;
-      border-radius: 10rem;
-
-      cursor: pointer;
-
-      &:hover {
-        & svg path {
-          stroke: variables.$color-orange;
-        }
-      }
-    }
-
-    &__prev-btn {
-      left: 0;
-      transform: translate(-50%, -50%);
-    }
-    &__next-btn {
-      right: 0;
-      transform: translate(50%, -50%);
-    }
-  }
-
   &__main-photo {
     border-radius: 2rem;
     cursor: pointer;
+    max-width: 100%;
 
     @include mixins.respond(tab-port) {
       border-radius: 0;
+      cursor: default;
     }
 
     &--lightbox {

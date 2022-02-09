@@ -11,10 +11,8 @@ import photoPath2 from '../../images/products/image-product-2.jpg';
 import photoPath3 from '../../images/products/image-product-3.jpg';
 import photoPath4 from '../../images/products/image-product-4.jpg';
 
-import { ReactComponent as PrevIcon } from '../../icons/icon-previous.svg';
-import { ReactComponent as NextIcon } from '../../icons/icon-next.svg';
-
 import Modal from '../UI/Modal';
+import Photobox from '../UI/Photobox';
 
 export default class ArticlePhotos extends Component {
   articlePhotoPaths = [
@@ -101,14 +99,23 @@ export default class ArticlePhotos extends Component {
       </div>
     );
 
+    const navigateForward = this.navigatePhotoHandler.bind(this, true);
+    const navigateBackward = this.navigatePhotoHandler.bind(this, false);
+
     return (
       <div className={classes['article-photos']}>
-        <img
-          alt='Shoe'
-          src={this.state.selectedPhoto.photoPath}
-          className={classes['article-photos__main-photo']}
-          onClick={this.toggleLightBox.bind(this)}
-        />
+        <Photobox
+          onlyPhoneNavigation={true}
+          onPrev={navigateBackward}
+          onNext={navigateForward}
+        >
+          <img
+            alt='Shoe'
+            src={this.state.selectedPhoto.photoPath}
+            className={classes['article-photos__main-photo']}
+            onClick={this.toggleLightBox.bind(this)}
+          />
+        </Photobox>
         {thumbnailBox}
 
         {this.state.lightBoxOpened && (
@@ -116,25 +123,13 @@ export default class ArticlePhotos extends Component {
             <div
               className={`${classes['article-photos']} ${classes['article-photos--lightbox']}`}
             >
-              <div className={classes['article-photos__main-photo-container']}>
-                <button
-                  className={`${classes['article-photos__main-photo-container__switch-btn']} ${classes['article-photos__main-photo-container__prev-btn']}`}
-                  onClick={this.navigatePhotoHandler.bind(this, false)}
-                >
-                  <PrevIcon />
-                </button>
+              <Photobox onPrev={navigateBackward} onNext={navigateForward}>
                 <img
                   alt='Shoe'
                   src={this.state.selectedPhoto.photoPath}
                   className={`${classes['article-photos__main-photo']} ${classes['article-photos__main-photo--lightbox']}`}
                 />
-                <button
-                  className={`${classes['article-photos__main-photo-container__switch-btn']} ${classes['article-photos__main-photo-container__next-btn']}`}
-                  onClick={this.navigatePhotoHandler.bind(this, true)}
-                >
-                  <NextIcon />
-                </button>
-              </div>
+              </Photobox>
               {thumbnailBox}
             </div>
           </Modal>

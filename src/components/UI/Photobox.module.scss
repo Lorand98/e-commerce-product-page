@@ -1,0 +1,58 @@
+@use '../../sass/abstracts/variables.module';
+@use '../../sass/abstracts/mixins.module';
+
+.photobox {
+  position: relative;
+
+  &__switch-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    background-color: variables.$color-white;
+    border: none;
+    border-radius: 10rem;
+
+    cursor: pointer;
+
+    &--phone {
+      display: none;
+
+      @include mixins.respond(tab-port) {
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        & svg {
+          transform: scale(0.8);
+        }
+      }
+    }
+
+    &:hover {
+      & svg path {
+        stroke: variables.$color-orange;
+      }
+    }
+  }
+
+  &__prev-btn {
+    left: 0;
+    transform: translate(-50%, -50%);
+
+    @include mixins.respond(tab-port) {
+      transform: translate(50%, -50%);
+    }
+  }
+  &__next-btn {
+    right: 0;
+    transform: translate(50%, -50%);
+
+    @include mixins.respond(tab-port) {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
