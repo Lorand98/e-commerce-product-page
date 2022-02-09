@@ -38,6 +38,20 @@ $initial-max-width: 45rem;
       max-width: 100%;
       cursor: default;
     }
+
+    &--desktop {
+      @include mixins.respond(tab-port) {
+        display: none;
+      }
+    }
+
+    &--phone {
+      display: none;
+
+      @include mixins.respond(tab-port) {
+        display: block;
+      }
+    }
   }
 
   &__thumbnail-box {

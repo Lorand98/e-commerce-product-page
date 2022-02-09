@@ -112,8 +112,13 @@ export default class ArticlePhotos extends Component {
           <img
             alt='Shoe'
             src={this.state.selectedPhoto.photoPath}
-            className={classes['article-photos__main-photo']}
+            className={`${classes['article-photos__main-photo']} ${classes['article-photos__main-photo--desktop']}`}
             onClick={this.toggleLightBox.bind(this)}
+          />
+          <img
+            alt='Shoe'
+            src={this.state.selectedPhoto.photoPath}
+            className={`${classes['article-photos__main-photo']} ${classes['article-photos__main-photo--phone']}`}
           />
         </Photobox>
         {thumbnailBox}
