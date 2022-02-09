@@ -69,6 +69,9 @@ export default class ArticlePhotos extends Component {
   render() {
     const thumbnailList = this.articlePhotoPaths.map(
       ({ thumbnailPath }, currElIndex) => {
+        const thumbnailSelected =
+          thumbnailPath === this.state.selectedPhoto.thumbnailPath;
+
         const thumbnailImg = (
           <img
             alt='Shoe'
@@ -76,26 +79,17 @@ export default class ArticlePhotos extends Component {
             className={classes['article-photos__thumbnail']}
           />
         );
-        const thumbnail =
-          thumbnailPath === this.state.selectedPhoto.thumbnailPath ? (
-            <div
-              className={
-                classes['article-photos__thumbnail-container__selected']
-              }
-            >
-              {thumbnailImg}
-            </div>
-          ) : (
-            thumbnailImg
-          );
 
         return (
           <div
-            className={classes['article-photos__thumbnail-container']}
+            className={`${classes['article-photos__thumbnail-container']} ${
+              thumbnailSelected &&
+              classes['article-photos__thumbnail-container--selected']
+            }`}
             key={currElIndex}
             onClick={this.selectPhotoHandler.bind(this, currElIndex)}
           >
-            {thumbnail}
+            {thumbnailImg}
           </div>
         );
       }

@@ -88,20 +88,17 @@ $initial-max-width: 45rem;
   }
 
   &__thumbnail-container {
-    flex: 0 1 25%;
-
+    background-color: variables.$color-white;
     border-radius: 1rem;
     overflow: hidden;
 
     cursor: pointer;
 
-    &__selected {
+    &--selected {
       box-shadow: 0 0 0 0.3rem variables.$color-orange;
 
-      background-color: variables.$color-white;
-
       & > * {
-        opacity: 0.6;
+        opacity: 0.6 !important;
       }
     }
   }
@@ -109,5 +106,9 @@ $initial-max-width: 45rem;
   &__thumbnail {
     max-width: 100%;
     display: block;
+    transition: all 0.2s;
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
