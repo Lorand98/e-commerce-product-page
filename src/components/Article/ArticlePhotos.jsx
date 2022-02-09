@@ -124,6 +124,7 @@ export default class ArticlePhotos extends Component {
               className={`${classes['article-photos']} ${classes['article-photos--lightbox']}`}
             >
               <Photobox onPrev={navigateBackward} onNext={navigateForward}>
+                {/* TODO: lazy loading img */}
                 <img
                   alt='Shoe'
                   src={this.state.selectedPhoto.photoPath}
