@@ -1,20 +1,20 @@
 import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
-import Backdrop from '../UI/Backdrop';
+import Backdrop from './Backdrop';
 
-import classes from './LightBoxGallery.module.scss';
+import classes from './Modal.module.scss';
 
 import { ReactComponent as CloseIcon } from '../../icons/icon-close.svg';
 
-export default class LightBoxGallery extends Component {
+export default class Modal extends Component {
   render() {
     return ReactDOM.createPortal(
       <>
         <Backdrop />
-        <div className={classes['lightbox-gallery-container']}>
-          <div className={classes['lightbox-gallery']}>
+        <div className={classes['modal-container']}>
+          <div className={classes['modal']}>
             <CloseIcon
-              className={classes['lightbox-gallery__close']}
+              className={classes['modal__close']}
               onClick={this.props.onClose}
             />
             {this.props.children}

@@ -14,7 +14,7 @@ import photoPath4 from '../../images/products/image-product-4.jpg';
 import { ReactComponent as PrevIcon } from '../../icons/icon-previous.svg';
 import { ReactComponent as NextIcon } from '../../icons/icon-next.svg';
 
-import LightBoxGallery from '../Layout/LightBoxGallery';
+import Modal from '../UI/Modal';
 
 export default class ArticlePhotos extends Component {
   articlePhotoPaths = [
@@ -112,7 +112,7 @@ export default class ArticlePhotos extends Component {
         {thumbnailBox}
 
         {this.state.lightBoxOpened && (
-          <LightBoxGallery onClose={this.toggleLightBox.bind(this)}>
+          <Modal onClose={this.toggleLightBox.bind(this)}>
             <div
               className={`${classes['article-photos']} ${classes['article-photos--lightbox']}`}
             >
@@ -137,7 +137,7 @@ export default class ArticlePhotos extends Component {
               </div>
               {thumbnailBox}
             </div>
-          </LightBoxGallery>
+          </Modal>
         )}
       </div>
     );

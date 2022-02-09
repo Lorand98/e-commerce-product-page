@@ -1,5 +1,5 @@
 @use '../../sass/abstracts/variables.module';
-.lightbox-gallery-container {
+.modal-container {
   position: fixed;
   min-width: 100vw;
   min-height: 100vh;
@@ -14,7 +14,7 @@
   justify-content: center;
 }
 
-.lightbox-gallery {
+.modal {
   position: relative;
   max-width: 50rem;
 
