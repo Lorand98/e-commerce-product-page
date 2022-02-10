@@ -10,6 +10,10 @@
   max-width: 90%;
   margin: 8rem auto;
 
+  @include mixins.respond(tab-land) {
+    margin-top: 3rem;
+  }
+
   @include mixins.respond(tab-port) {
     margin-top: 2rem;
     max-width: 100%;

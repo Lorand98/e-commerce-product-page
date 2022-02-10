@@ -1,4 +1,6 @@
 @use '../../sass/abstracts/variables.module';
+@use '../../sass/abstracts/mixins.module';
+
 .modal-container {
   position: fixed;
   min-width: 100vw;
@@ -27,6 +29,10 @@
     cursor: pointer;
     & path {
       fill: variables.$color-orange;
+    }
+
+    @include mixins.respond(tab-land) {
+      transform: scale(1.2);
     }
   }
 }

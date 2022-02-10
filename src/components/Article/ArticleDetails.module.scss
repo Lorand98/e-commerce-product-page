@@ -29,6 +29,11 @@
     font-size: 4.8rem;
     line-height: 5rem;
     color: variables.$color-black;
+
+    @include mixins.respond(tab-land) {
+      font-size: 4rem;
+      line-height: 4.4rem;
+    }
     @include mixins.respond(tab-port) {
       font-size: 3rem;
       line-height: 3.6rem;
