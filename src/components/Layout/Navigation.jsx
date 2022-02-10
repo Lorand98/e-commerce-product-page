@@ -7,6 +7,7 @@ import { ReactComponent as MenuIcon } from '../../icons/icon-menu.svg';
 
 import imgAvatarPath from '../../images/image-avatar.png';
 import MobileNavigationList from './MobileNavigationList';
+import { Transition } from 'react-transition-group';
 
 class Navigation extends Component {
   constructor() {
@@ -48,11 +49,21 @@ class Navigation extends Component {
 
           <ul className={classes['navigation-list']}>{this.navigationList}</ul>
 
-          {this.state.showMobileNav && (
-            <MobileNavigationList onClose={this.changeShowMobileNav.bind(this)}>
-              {this.navigationList}
-            </MobileNavigationList>
-          )}
+          <Transition
+            in={this.state.showMobileNav}
+            timeout={300}
+            mountOnEnter
+            unmountOnExit
+          >
+            {(state) => (
+              <MobileNavigationList
+                onClose={this.changeShowMobileNav.bind(this)}
+                show={state}
+              >
+                {this.navigationList}
+              </MobileNavigationList>
+            )}
+          </Transition>
         </div>
         <div className={classes['navigation__user-cart']}>
           <CartIcon className={classes['navigation__user-cart__cart']} />

@@ -8,16 +8,32 @@ import Backdrop from '../UI/Backdrop';
 
 export default class MobileNavigationList extends Component {
   render() {
+    const navlistOverlayCssClasses = [
+      classes['mobile-navlist-overlay'],
+      this.props.show === 'entering'
+        ? classes['mobile-navlist-overlay--open']
+        : this.props.show === 'exiting'
+        ? classes['mobile-navlist-overlay--close']
+        : '',
+    ];
+
+    const backdropCssClasses = [
+      this.props.show === 'entering'
+        ? classes['backdrop-open']
+        : this.props.show === 'exiting'
+        ? classes['backdrop-close']
+        : '',
+    ];
+
     return ReactDOM.createPortal(
-      <div
-        className={`${classes['mobile-navlist-container']} ${this.props.className}`}
-      >
-        <Backdrop />
-        <div className={classes['mobile-navlist-overlay']}>
+      <>
+        <Backdrop className={backdropCssClasses} />
+
+        <div className={navlistOverlayCssClasses.join(' ')}>
           <CloseIcon onClick={this.props.onClose} />
           <ul className={classes['mobile-navlist']}>{this.props.children}</ul>
         </div>
-      </div>,
+      </>,
       document.getElementById('overlays')
     );
   }
