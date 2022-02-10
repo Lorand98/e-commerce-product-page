@@ -2,28 +2,40 @@
 @use '../../sass/abstracts/mixins.module';
 
 .navigation {
-  padding: 0rem 1rem 3rem;
-  margin: 1rem;
+  padding: 0rem 2rem;
+  margin-top: 2rem;
   border-bottom: 0.1rem solid variables.$color-grayish-blue;
   display: flex;
+  min-height: 7rem;
 
-  align-items: center;
   justify-content: space-between;
 
   @include mixins.respond(tab-port) {
     border-bottom: none;
     padding: 0rem 1rem 0rem;
     margin: 1rem 0;
+    min-height: initial;
   }
 
   &-list-container {
     display: flex;
+
     justify-content: flex-start;
     gap: 6rem;
 
+    @include mixins.respond(tab-land) {
+      gap: 3rem;
+    }
+    @include mixins.respond(tab-port) {
+      align-items: center;
+    }
     &__start {
       display: flex;
       gap: 1rem;
+
+      @include mixins.respond(tab-land) {
+        transform: scale(0.9);
+      }
 
       @include mixins.respond(tab-port) {
         transform: scale(0.8);
@@ -45,14 +57,29 @@
     gap: 3rem;
     flex: 1 1 auto;
 
+    @include mixins.respond(tab-land) {
+      gap: 2rem;
+    }
+
     @include mixins.respond(tab-port) {
       display: none;
+    }
+
+    &__item {
+      transition: all 0.2s ease-in;
+      border-bottom: 0.4rem solid transparent;
+      cursor: pointer;
+      &:hover {
+        color: variables.$color-black;
+        border-bottom: 0.4rem solid variables.$color-orange;
+      }
     }
   }
 
   &__user-cart {
     display: flex;
 
+    align-self: baseline;
     align-items: center;
     justify-content: space-evenly;
 
@@ -61,8 +88,12 @@
       gap: 2rem;
     }
 
+    &__cart {
+      cursor: pointer;
+    }
+
     &__avatar-container {
-      flex: 0 1 5rem;
+      flex: 0 1 3rem;
       display: flex;
       align-items: center;
 
@@ -73,6 +104,18 @@
 
     &__avatar {
       width: 100%;
+      transition: all 0.3s;
+      outline: 0.2rem solid transparent;
+      transform: scale(1.5);
+      &:hover {
+        border-radius: 100rem;
+        outline: 0.2rem solid variables.$color-orange;
+        cursor: pointer;
+      }
+
+      @include mixins.respond(tab-port) {
+        transform: scale(1.2);
+      }
     }
   }
 }

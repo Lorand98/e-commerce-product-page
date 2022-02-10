@@ -25,11 +25,21 @@ class Navigation extends Component {
 
   navigationList = (
     <>
-      <li>Collections</li>
-      <li>Men</li>
-      <li>Women</li>
-      <li>About</li>
-      <li>Contact</li>
+      <li className={classes['navigation-list__item']}>
+        <a>Collections</a>
+      </li>
+      <li className={classes['navigation-list__item']}>
+        <a>Men</a>
+      </li>
+      <li className={classes['navigation-list__item']}>
+        <a>Women</a>
+      </li>
+      <li className={classes['navigation-list__item']}>
+        <a>About</a>
+      </li>
+      <li className={classes['navigation-list__item']}>
+        <a>Contact</a>
+      </li>
     </>
   );
 
