@@ -7,6 +7,24 @@ import { ReactComponent as AddIcon } from '../../icons/icon-plus.svg';
 import { ReactComponent as RemoveIcon } from '../../icons/icon-minus.svg';
 
 export default class ArticleDetails extends Component {
+  constructor() {
+    super();
+    this.state = {
+      productQty: 0,
+    };
+  }
+
+  increaseQtyHandler() {
+    this.setState((prevState) => ({ productQty: prevState.productQty + 1 }));
+  }
+  decreaseQtyHandler() {
+    this.setState((prevState) =>
+      prevState.productQty > 0
+        ? { productQty: prevState.productQty - 1 }
+        : prevState
+    );
+  }
+
   render() {
     return (
       <div className={classes['article-details']}>
@@ -35,13 +53,19 @@ export default class ArticleDetails extends Component {
 
         <div className={classes['article-details__actions']}>
           <div className={classes['article-details__actions__qty']}>
-            <button className={classes['article-details__actions__qty__btn']}>
+            <button
+              className={classes['article-details__actions__qty__btn']}
+              onClick={this.decreaseQtyHandler.bind(this)}
+            >
               <RemoveIcon />
             </button>
             <span className={classes['article-details__actions__qty__value']}>
-              0
+              {this.state.productQty}
             </span>
-            <button className={classes['article-details__actions__qty__btn']}>
+            <button
+              className={classes['article-details__actions__qty__btn']}
+              onClick={this.increaseQtyHandler.bind(this)}
+            >
               <AddIcon />
             </button>
           </div>

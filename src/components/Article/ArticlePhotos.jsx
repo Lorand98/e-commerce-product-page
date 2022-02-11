@@ -80,8 +80,9 @@ export default class ArticlePhotos extends Component {
         return (
           <div
             className={`${classes['article-photos__thumbnail-container']} ${
-              thumbnailSelected &&
-              classes['article-photos__thumbnail-container--selected']
+              thumbnailSelected
+                ? classes['article-photos__thumbnail-container--selected']
+                : ''
             }`}
             key={currElIndex}
             onClick={this.selectPhotoHandler.bind(this, currElIndex)}
