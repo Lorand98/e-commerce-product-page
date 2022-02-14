@@ -6,49 +6,71 @@ import { ReactComponent as CartIcon } from '../../icons/icon-cart.svg';
 import { ReactComponent as AddIcon } from '../../icons/icon-plus.svg';
 import { ReactComponent as RemoveIcon } from '../../icons/icon-minus.svg';
 
-export default class ArticleDetails extends Component {
+import actions from '../../store/actions';
+import { connect } from 'react-redux';
+
+class ArticleDetails extends Component {
   constructor() {
     super();
     this.state = {
-      productQty: 0,
+      qty: 0,
+      name: 'Fall Limited Edition Sneakers',
+      description:
+        "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
+      oldPrice: 250,
+      discount: 50,
+      currPrice: 125,
+      imgFileName: 'image-product-1.jpg',
     };
   }
 
   increaseQtyHandler() {
-    this.setState((prevState) => ({ productQty: prevState.productQty + 1 }));
+    this.setState((prevState) => ({ qty: prevState.qty + 1 }));
   }
   decreaseQtyHandler() {
     this.setState((prevState) =>
-      prevState.productQty > 0
-        ? { productQty: prevState.productQty - 1 }
-        : prevState
+      prevState.qty > 0 ? { qty: prevState.qty - 1 } : prevState
     );
+  }
+
+  addToCartHandler() {
+    if (this.state.qty > 0) {
+      this.props.addToCart({
+        id: 'prod1',
+        name: this.state.name,
+        price: this.state.currPrice,
+        qty: this.state.qty,
+        imgFileName: this.state.imgFileName,
+      });
+
+      this.setState({
+        qty: 0,
+      });
+    }
   }
 
   render() {
     return (
       <div className={classes['article-details']}>
         <p className={classes['article-details__company']}>Sneaker Company</p>
-        <h1 className={classes['article-details__title']}>
-          Fall Limited Edition Sneakers
-        </h1>
+        <h1 className={classes['article-details__title']}>{this.state.name}</h1>
         <p className={classes['article-details__description']}>
-          These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything
-          the weather can offer.
+          {this.state.description}
         </p>
         <div className={classes['article-details__price']}>
           <div className={classes['article-details__price--current']}>
             <p className={classes['article-details__price--current__value']}>
-              $125.00
+              {`$${this.state.currPrice}`}
             </p>
             <span
               className={classes['article-details__price--current__discount']}
             >
-              50%
+              {`${this.state.discount}%`}
             </span>
           </div>
-          <p className={classes['article-details__price--old']}>$250.00</p>
+          <p
+            className={classes['article-details__price--old']}
+          >{`$${this.state.oldPrice}`}</p>
         </div>
 
         <div className={classes['article-details__actions']}>
@@ -60,7 +82,7 @@ export default class ArticleDetails extends Component {
               <RemoveIcon />
             </button>
             <span className={classes['article-details__actions__qty__value']}>
-              {this.state.productQty}
+              {this.state.qty}
             </span>
             <button
               className={classes['article-details__actions__qty__btn']}
@@ -69,7 +91,10 @@ export default class ArticleDetails extends Component {
               <AddIcon />
             </button>
           </div>
-          <button className={classes['article-details__actions__cart-btn']}>
+          <button
+            className={classes['article-details__actions__cart-btn']}
+            onClick={this.addToCartHandler.bind(this)}
+          >
             <CartIcon
               className={classes['article-details__actions__cart-btn__icon']}
             />
@@ -80,3 +105,19 @@ export default class ArticleDetails extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => {
+      dispatch(actions.addToCart(product));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleDetails);

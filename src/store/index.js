@@ -1,18 +1,18 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers } from 'redux';
 import { ACTION_LIST } from './actions';
 
 const cartReducer = (state = [], action) => {
   switch (action.type) {
     case ACTION_LIST.ADD_TO_CART: {
-      return [...state, action.payload];
+      return [...state, { ...action.payload }];
     }
 
     case ACTION_LIST.REMOVE_FROM_CART: {
-      return state.filter((product) => product.id !== payload.id);
+      return state.filter((product) => product.id !== action.payload.id);
     }
 
     default:
-      state;
+      return state;
   }
 };
 

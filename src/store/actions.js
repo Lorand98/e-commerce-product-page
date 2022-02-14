@@ -8,7 +8,7 @@ const actions = {
     return { type: ACTION_LIST.ADD_TO_CART, payload };
   },
 
-  removeFromCart() {
+  removeFromCart(payload) {
     return { type: ACTION_LIST.REMOVE_FROM_CART, payload };
   },
 };

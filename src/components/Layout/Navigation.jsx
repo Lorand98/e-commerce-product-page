@@ -9,6 +9,9 @@ import imgAvatarPath from '../../images/image-avatar.png';
 import MobileNavigationList from './MobileNavigationList';
 import { Transition } from 'react-transition-group';
 
+import { connect } from 'react-redux';
+import actions from '../../store/actions';
+
 class Navigation extends Component {
   constructor() {
     super();
@@ -44,6 +47,7 @@ class Navigation extends Component {
   );
 
   render() {
+    console.log(this.props.cart);
     return (
       <nav className={classes['navigation']}>
         <div className={classes['navigation-list-container']}>
@@ -90,4 +94,16 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeFromCart: (productId) => dispatch(actions.removeFromCart(productId)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
