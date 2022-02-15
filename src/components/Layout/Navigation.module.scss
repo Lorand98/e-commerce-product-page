@@ -88,8 +88,27 @@
       gap: 2rem;
     }
 
+    &__cart-container {
+      position: relative;
+    }
+
     &__cart {
       cursor: pointer;
+
+      &-qty {
+        position: absolute;
+
+        font-size: 1rem;
+        font-weight: 700;
+        background-color: variables.$color-orange;
+        color: variables.$color-white;
+        line-height: 1.2rem;
+        padding: 0 0.5rem;
+        left: 1rem;
+        top: -0.3rem;
+        border-radius: 0.6rem;
+        text-align: center;
+      }
     }
 
     &__avatar-container {

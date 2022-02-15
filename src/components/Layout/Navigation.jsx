@@ -47,7 +47,6 @@ class Navigation extends Component {
   );
 
   render() {
-    console.log(this.props.cart);
     return (
       <nav className={classes['navigation']}>
         <div className={classes['navigation-list-container']}>
@@ -80,7 +79,12 @@ class Navigation extends Component {
           </Transition>
         </div>
         <div className={classes['navigation__user-cart']}>
-          <CartIcon className={classes['navigation__user-cart__cart']} />
+          <div className={classes['navigation__user-cart__cart-container']}>
+            <CartIcon className={classes['navigation__user-cart__cart']} />
+            <span className={classes['navigation__user-cart__cart-qty']}>
+              {this.props.cart.totalQty}
+            </span>
+          </div>
           <div className={classes['navigation__user-cart__avatar-container']}>
             <img
               alt='User Profile'
