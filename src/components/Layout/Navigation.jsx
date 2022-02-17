@@ -11,18 +11,26 @@ import { Transition } from 'react-transition-group';
 
 import { connect } from 'react-redux';
 import actions from '../../store/actions';
+import Cart from '../Cart/Cart';
 
 class Navigation extends Component {
   constructor() {
     super();
     this.state = {
       showMobileNav: false,
+      showCart: false,
     };
   }
 
-  changeShowMobileNav() {
+  toggleMobileNav() {
     this.setState((prevState) => ({
       showMobileNav: !prevState.showMobileNav,
+    }));
+  }
+
+  toggleCart() {
+    this.setState((prevState) => ({
+      showCart: !prevState.showCart,
     }));
   }
 
@@ -52,7 +60,7 @@ class Navigation extends Component {
         <div className={classes['navigation-list-container']}>
           <div className={classes['navigation-list-container__start']}>
             <MenuIcon
-              onClick={this.changeShowMobileNav.bind(this)}
+              onClick={this.toggleMobileNav.bind(this)}
               className={classes['navigation-list-container__start__menu']}
             />
             <Logo
@@ -70,7 +78,7 @@ class Navigation extends Component {
           >
             {(state) => (
               <MobileNavigationList
-                onClose={this.changeShowMobileNav.bind(this)}
+                onClose={this.toggleMobileNav.bind(this)}
                 show={state}
               >
                 {this.navigationList}
@@ -80,7 +88,10 @@ class Navigation extends Component {
         </div>
         <div className={classes['navigation__user-cart']}>
           <div className={classes['navigation__user-cart__cart-container']}>
-            <CartIcon className={classes['navigation__user-cart__cart']} />
+            <CartIcon
+              className={classes['navigation__user-cart__cart']}
+              onClick={this.toggleCart.bind(this)}
+            />
             <span className={classes['navigation__user-cart__cart-qty']}>
               {this.props.cart.totalQty}
             </span>
@@ -92,6 +103,7 @@ class Navigation extends Component {
               className={classes['navigation__user-cart__avatar']}
             />
           </div>
+          {this.state.showCart && <Cart />}
         </div>
       </nav>
     );

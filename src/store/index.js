@@ -34,7 +34,18 @@ const cartReducer = (
     }
 
     case ACTION_LIST.REMOVE_FROM_CART: {
-      return state.items.filter((product) => product.id !== action.payload.id);
+      const newItems = state.items.filter(
+        (product) => product.id !== action.payload
+      );
+
+      const newTotalQty = newItems.reduce(
+        (acc, newItem) => acc + newItem.qty,
+        0
+      );
+      return {
+        items: newItems,
+        totalQty: newTotalQty,
+      };
     }
 
     default: {

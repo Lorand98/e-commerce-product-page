@@ -8,6 +8,7 @@ import { ReactComponent as RemoveIcon } from '../../icons/icon-minus.svg';
 
 import actions from '../../store/actions';
 import { connect } from 'react-redux';
+import Button from '../UI/Button';
 
 class ArticleDetails extends Component {
   constructor() {
@@ -17,10 +18,10 @@ class ArticleDetails extends Component {
       name: 'Fall Limited Edition Sneakers',
       description:
         "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
-      oldPrice: 250,
+      oldPrice: Number(250).toFixed(2),
       discount: 50,
-      currPrice: 125,
-      imgFileName: 'image-product-1.jpg',
+      currPrice: Number(125).toFixed(2),
+      imgFileName: 'image-product-1-thumbnail.jpg',
     };
   }
 
@@ -91,7 +92,7 @@ class ArticleDetails extends Component {
               <AddIcon />
             </button>
           </div>
-          <button
+          <Button
             className={classes['article-details__actions__cart-btn']}
             onClick={this.addToCartHandler.bind(this)}
           >
@@ -99,7 +100,7 @@ class ArticleDetails extends Component {
               className={classes['article-details__actions__cart-btn__icon']}
             />
             Add to cart
-          </button>
+          </Button>
         </div>
       </div>
     );
