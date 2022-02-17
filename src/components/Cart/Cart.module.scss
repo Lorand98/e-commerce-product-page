@@ -1,19 +1,33 @@
 @use '../../sass/abstracts/variables.module';
 @use '../../sass/abstracts/mixins.module';
+@use '../../sass/base/animations.module';
 
 .cart {
-  top: 7rem;
-
+  top: 5rem;
+  margin-right: 2rem;
   position: absolute;
   display: flex;
   flex-direction: column;
   min-width: 32rem;
+  max-width: 32rem;
   border-radius: 1rem;
 
   background-color: variables.$color-white;
   box-shadow: 0rem 1.2rem 3.5rem -1.8rem variables.$color-black;
 
   z-index: 5;
+
+  &--open {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  &--close {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+
+  @media only screen and (max-width: 84em) {
+    right: 1rem;
+  }
 
   @include mixins.respond(tab-port) {
     min-width: 90vw;

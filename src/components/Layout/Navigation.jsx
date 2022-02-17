@@ -103,7 +103,14 @@ class Navigation extends Component {
               className={classes['navigation__user-cart__avatar']}
             />
           </div>
-          {this.state.showCart && <Cart />}
+          <Transition
+            in={this.state.showCart}
+            timeout={300}
+            mountOnEnter
+            unmountOnExit
+          >
+            {(state) => <Cart show={state} />}
+          </Transition>
         </div>
       </nav>
     );

@@ -10,10 +10,19 @@ import Button from '../UI/Button';
 
 class Cart extends Component {
   render() {
+    const cartCssClasses = [
+      classes['cart'],
+      this.props.show === 'entering'
+        ? classes['cart--open']
+        : this.props.show === 'exiting'
+        ? classes['cart--close']
+        : '',
+    ];
+
     const prodImages = require.context('../../images/products', true);
 
     return (
-      <div className={classes['cart']}>
+      <div className={cartCssClasses.join(' ')}>
         <div className={classes['cart__header']}>Cart</div>
         <div className={classes['cart__content']}>
           {this.props.cart.totalQty === 0 ? (
