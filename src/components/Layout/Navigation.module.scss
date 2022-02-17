@@ -74,6 +74,11 @@
         color: variables.$color-black;
         border-bottom: 0.4rem solid variables.$color-orange;
       }
+
+      &__link {
+        text-decoration: none;
+        color: inherit;
+      }
     }
   }
 
