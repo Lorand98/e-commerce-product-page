@@ -37,19 +37,19 @@ class Navigation extends Component {
   navigationList = (
     <>
       <li className={classes['navigation-list__item']}>
-        <a href='#'>Collections</a>
+        <a href='/#'>Collections</a>
       </li>
       <li className={classes['navigation-list__item']}>
-        <a href='#'>Men</a>
+        <a href='/#'>Men</a>
       </li>
       <li className={classes['navigation-list__item']}>
-        <a href='#'>Women</a>
+        <a href='/#'>Women</a>
       </li>
       <li className={classes['navigation-list__item']}>
-        <a href='#'>About</a>
+        <a href='/#'>About</a>
       </li>
       <li className={classes['navigation-list__item']}>
-        <a href='#'>Contact</a>
+        <a href='/#'>Contact</a>
       </li>
     </>
   );
