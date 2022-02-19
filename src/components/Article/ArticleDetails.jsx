@@ -79,15 +79,20 @@ class ArticleDetails extends Component {
             <button
               className={classes['article-details__actions__qty__btn']}
               onClick={this.decreaseQtyHandler.bind(this)}
+              aria-label='decrease'
             >
               <RemoveIcon />
             </button>
-            <span className={classes['article-details__actions__qty__value']}>
+            <span
+              className={classes['article-details__actions__qty__value']}
+              data-testid='test-quantity'
+            >
               {this.state.qty}
             </span>
             <button
               className={classes['article-details__actions__qty__btn']}
               onClick={this.increaseQtyHandler.bind(this)}
+              aria-label='increase'
             >
               <AddIcon />
             </button>

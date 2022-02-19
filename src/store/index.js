@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { ACTION_LIST } from './actions';
 
 const cartReducer = (
@@ -54,6 +54,8 @@ const cartReducer = (
   }
 };
 
-// const store = createStore(cartReducer);
+const reducers = combineReducers({ cart: cartReducer });
 
-export default combineReducers({ cart: cartReducer });
+const store = createStore(reducers);
+
+export default store;
