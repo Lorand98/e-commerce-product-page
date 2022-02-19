@@ -96,6 +96,8 @@
 
     &__cart-container {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     &__cart {
@@ -139,7 +141,7 @@
       }
 
       @include mixins.respond(tab-port) {
-        transform: scale(1.2);
+        transform: scale(1);
       }
     }
   }

@@ -102,9 +102,11 @@ class Navigation extends Component {
               className={classes['navigation__user-cart__cart']}
               onClick={this.toggleCart.bind(this)}
             />
-            <span className={classes['navigation__user-cart__cart-qty']}>
-              {this.props.cart.totalQty}
-            </span>
+            {this.props.cart.totalQty > 0 && (
+              <span className={classes['navigation__user-cart__cart-qty']}>
+                {this.props.cart.totalQty}
+              </span>
+            )}
           </div>
           <div className={classes['navigation__user-cart__avatar-container']}>
             <img

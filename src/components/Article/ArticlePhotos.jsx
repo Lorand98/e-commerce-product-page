@@ -42,15 +42,11 @@ export default class ArticlePhotos extends Component {
     let toBeSelectedPhotoIndex;
     let { selectedPhotoIndex: currSelectedPhotoIndex } = this.state;
 
-    toBeSelectedPhotoIndex = next
-      ? currSelectedPhotoIndex + 1
-      : currSelectedPhotoIndex - 1;
+    toBeSelectedPhotoIndex = currSelectedPhotoIndex + next;
 
     if (toBeSelectedPhotoIndex > this.articlePhotoPaths.length - 1) {
       toBeSelectedPhotoIndex = 0;
-    }
-
-    if (toBeSelectedPhotoIndex < 0) {
+    } else if (toBeSelectedPhotoIndex < 0) {
       toBeSelectedPhotoIndex = this.articlePhotoPaths.length - 1;
     }
 
@@ -99,8 +95,8 @@ export default class ArticlePhotos extends Component {
       </div>
     );
 
-    const navigateForward = this.navigatePhotoHandler.bind(this, true);
-    const navigateBackward = this.navigatePhotoHandler.bind(this, false);
+    const navigateForward = this.navigatePhotoHandler.bind(this, 1);
+    const navigateBackward = this.navigatePhotoHandler.bind(this, -1);
 
     return (
       <div className={classes['article-photos']}>
