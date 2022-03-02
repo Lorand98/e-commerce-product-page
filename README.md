@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://e-commerce-product-page-lori.netlify.app/](https://twitter.com/LorandKalmar)
+- Live Site URL: [https://e-commerce-product-page-lori.netlify.app/](https://e-commerce-product-page-lori.netlify.app/)
 
 ## My process
 
