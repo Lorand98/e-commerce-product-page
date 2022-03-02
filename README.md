@@ -32,6 +32,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [https://e-commerce-product-page-lori.netlify.app/](https://e-commerce-product-page-lori.netlify.app/)
+- Frontend Mentor Solution URL: [https://www.frontendmentor.io/solutions/ecommerce-product-page-created-using-react-and-sassscss-xVW-jgzwh/](https://www.frontendmentor.io/solutions/ecommerce-product-page-created-using-react-and-sassscss-xVW-jgzwh)
 
 ## My process
 
